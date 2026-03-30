@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Google Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+header {
+  background-image: url('assets/worldmap.png');
+  background-repeat: no-repeat;            /* 2. Prevent image repetition */
+  background-position: center;      /* 3. Center the image */
+  background-size: cover;                  /* 4. Scale to cover the entire container */
+  background-color: #ffffff;               /* 6. (Optional) Fallback color */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  padding: 2em 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 10em;
+}
+
+h1 {
+  color: #32CD32;
+  font-size: 3.5rem;
+}
+
+.container {
+  margin: 1em 0.5em;
+  padding: 1em;
+  border: 2px solid #252F42;
+  border-radius: 15px;
+
+}
+
+h2 {
+  text-align: center;
+  margin-block: 0.5em;
+  color: #035A9D;
+}
+
+.user-input, .translate-textarea {
+  width: 100%;
+  background-color: aliceblue;
+  border-radius: 15px;
+  border: none;
+  font-size: 1rem;
+  padding: 1em;
+}
+
+.radio-group {
+  border: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+input[type="radio"] {
+  margin-block: 0.5em;
+  width: 1.25em;
+  height: 1.25em;
+  accent-color: #035A9D;
+  
+}
+
+input[type="radio"]:checked + label {
+  color: #035A9D;
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #035A9D;
+  padding-block: 0.5em;
+  color: white;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.translate-textarea {
+  margin-bottom: 1em;
+}
+
+.hide {
+  display: none;
+}
+

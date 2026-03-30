@@ -1,11 +1,52 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
         <!-- Your HTML here -->
-         <h1>AI Translation App</h1>
+         <header>
+            <nav>
+                <div class="logo-container">
+                    <img src="assets/parrot.png" alt="A graphical parrot as a logog" class="logo">
+                </div>
+                <div class="heading">
+                    <h1>PollyGot</h1>
+                    <p>Perfect Translation Every Time</p>
+                </div>
+            </nav>
+         </header>
+         <main>
+            <div class="container">
+                <form action="">
+                    <h2>Text to translate</h2>
+                    <textarea name="" id="user-input" class="user-input" cols="30" rows="10" placeholder="How are you?"></textarea>
+                    <!-- <div class="translated-text">
+                        <h2>Your translation</h2>
+                        <p class="translate-textarea">This is translated</p>
+                        <button class="btn" id="start-btn">Start Over</button>
+                    </div> -->
+                    <div class="selected-lang">
+                        <h2>Select Language</h2>
+                        <fieldset class="radio-group" id="radio-group">
+                            <input type="radio" name="language-option" id="french" value="french" checked>
+                            <label for="french">French</label><br>
+
+                            <input type="radio" name="language-option" id="spanish" value="spanish">
+                            <label for="spanish">Spanish</label><br>
+        
+                            <input type="radio" name="language-option" id="japanese" value="japanese">
+                            <label for="japanese">Japanese</label><br>
+                    
+                        </fieldset>
+                </div>
+                <button type="submit" class="btn" id="translate-btn">Translate</button>
+                </form>
+            </div>
+         </main>
         <script src="index.js" type="module"></script>
     </body>
 </html>
