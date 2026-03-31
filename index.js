@@ -36,6 +36,8 @@ async function translateText(e) {
 
     if(!text) return
 
+    try {
+
     const response = await openai.chat.completions.create({
         model: "gpt-5.4-nano", // This is where the model goes!
         messages: [{ 
@@ -55,11 +57,17 @@ async function translateText(e) {
             {
             role: "user",
             content: `Translate the following text into ${targetLang}: "${text}"`
-            }]
-        
+            }]    
     });
-    
+
     displayText(response.choices[0].message.content)
+
+  } catch(error) {
+    
+    console.log(error)
+    displayText('Can you try again please!')
+  }
+    
 }
 
 
