@@ -24,12 +24,8 @@
                 <form action="">
                     <h2>Text to translate</h2>
                     <textarea name="" id="user-input" class="user-input" cols="30" rows="10" placeholder="How are you?"></textarea>
-                    <!-- <div class="translated-text">
-                        <h2>Your translation</h2>
-                        <p class="translate-textarea">This is translated</p>
-                        <button class="btn" id="start-btn">Start Over</button>
-                    </div> -->
-                    <div class="selected-lang">
+                    <div class="translated-text hide" id="translated-text"></div>
+                    <div class="selected-lang" id="selected-lang">
                         <h2>Select Language</h2>
                         <fieldset class="radio-group" id="radio-group">
                             <input type="radio" name="language-option" id="french" value="french" checked>
@@ -42,8 +38,9 @@
                             <label for="japanese">Japanese</label><br>
                     
                         </fieldset>
+                
+                        <button type="submit" class="btn" id="translate-btn">Translate</button>
                 </div>
-                <button type="submit" class="btn" id="translate-btn">Translate</button>
                 </form>
             </div>
          </main>

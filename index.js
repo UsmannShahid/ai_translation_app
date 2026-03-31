@@ -1,19 +1,16 @@
 
 import OpenAI from "openai"; 
 
-
-
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true 
 });
 
 
-
-//const userLang = document.querySelector('#radio-group input[type="radio"]:checked')
+// Getting user Language Selection
 const translateBtn = document.getElementById('translate-btn')
 
-let targetLang = ""
+let targetLang = "French"
 
 const radioGroup = document.getElementById('radio-group');
 
@@ -27,15 +24,17 @@ radioGroup.addEventListener('change', () => {
   }
 });
 
-const textArea = document.getElementById('user-input')
-
 translateBtn.addEventListener('click', translateText)
 
 async function translateText(e) {
   // Prevent default form submission
     e.preventDefault();
 
-    const text = textArea.value
+    const textArea = document.getElementById('user-input')
+
+    const text = textArea.value.trim()
+
+    if(!text) return
 
     const response = await openai.chat.completions.create({
         model: "gpt-5.4-nano", // This is where the model goes!
@@ -59,7 +58,40 @@ async function translateText(e) {
             }]
         
     });
-    console.log(response.choices[0].message.content);
+    
+    displayText(response.choices[0].message.content)
 }
+
+
+function displayText(content) {
+  const translatedText = document.getElementById('translated-text')
+  const selectedLang = document.getElementById('selected-lang')
+  translatedText.innerHTML = `
+    <h2>Your translation</h2>
+    <p class="translate-textarea">${content}</p>
+    <button class="btn" id="start-btn">Start Over</button>
+  `
+  translatedText.classList.remove('hide')
+  selectedLang.classList.add('hide')
+}
+
+
+// Start over functionallity.
+document.addEventListener('click', (e) => {
+  // This finds the button even if you click a child element inside it
+  const startBtn = e.target.closest('#start-btn');
+
+  if (startBtn) {
+    e.preventDefault()
+    
+  const translatedText = document.getElementById('translated-text')
+  const selectedLang = document.getElementById('selected-lang')
+
+  translatedText.classList.add('hide')
+  selectedLang.classList.remove('hide')
+  }
+})
+
+
 
 //translateText()
